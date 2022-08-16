@@ -1,0 +1,80 @@
+### this file contains the request done through server side rest api
+
+POST  http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "name":"priyanka",
+     "nickname":"pegasis",
+     "password":"snehal",
+     "total_products_on_shell":10,
+     "total_earning":10000,
+     "total_balance":200
+    
+}
+
+### login endpoint
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "name":"priyanka",
+    "password":"snehal"
+    
+}
+
+
+### authorization endpoint
+GET  http://localhost:5000/auth/user
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoicHJpeWFua2EiLCJpYXQiOjE2NjA2NjI3NzYsImV4cCI6MTY2MDY2MjgzNn0.QJRe0JzvIdIauOr5IPR5dUCzwvT3MEwJtsd_ZJAAzjc
+
+
+### get the refresh tokens from the mongodb
+GET http://localhost:5000/token/fresh-access-jwt
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoicHJpeWFua2FAZ21haWwuY29tIiwiaWF0IjoxNjU5ODU0MDkzLCJleHAiOjE2NjA0NTg4OTN9.N3TS6EVjz5hrJ52zifxYrRFDEXPkWTOH3C_3z1DNB08
+
+
+### product insert endpoint
+POST  http://localhost:5000/product/insertProduct
+Content-Type: application/json
+
+{
+     "product_title": "Product",
+     "total_qty":10,
+     "remain_qty":4,
+     "price":100,
+     "product_image":""
+}
+
+
+### view all product endpoints
+GET http://localhost:5000/product/allProducts
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoic25laGFsMTIzIiwiaWF0IjoxNjYwNjU4MjQ1LCJleHAiOjE2NjA2NTgzMDV9.BJd7EFCSWnc126oW4WCLVIRBhtKBk8t9_haiel5Da6g
+
+{
+    "product_title": "Product"
+
+}
+
+### update data in user db endpoints
+PATCH http://localhost:5000/auth/update_user_data
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoicHJpeWFua2EiLCJpYXQiOjE2NjA2NjI4OTQsImV4cCI6MTY2MDY2Mjk1NH0.OfjwchzKHBxAsCvp9R5OHUls0LPtDB5SVh0ekiu5mr0
+
+{
+    "name":"priyanka",
+    "qty_purchased_by_buyer":4,
+    "price_paid_by_buyer":500
+}
+
+### update data in product db endpoints
+PATCH http://localhost:5000/product/update_product_data
+Content-Type: application/json
+
+{
+    "product_title":"Product",
+    "qty_purchased_by_buyer":2,
+    "price_paid_by_buyer":100
+}
+
